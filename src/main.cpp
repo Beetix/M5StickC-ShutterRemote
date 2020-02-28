@@ -163,6 +163,8 @@ void setup() {
     // initialize the M5StickC object
     M5.begin(true, true, false);
 
+    M5.Axp.ScreenBreath(10);
+
     pinMode(M5_LED, OUTPUT);
     digitalWrite(M5_LED, HIGH);
 
@@ -217,7 +219,7 @@ void loop() {
     last_warning_level = warning_level;
 
     if (millis() - last_press > 10000) {
-        M5.Axp.DeepSleep();
+        M5.Axp.PowerOff();
     }
 
     M5.update();
